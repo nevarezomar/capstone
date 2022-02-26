@@ -25,7 +25,9 @@ def create_app(config_class=Config):
     from application.users.routes import users
     from application.workouts.routes import workouts
     from application.main.routes import main
+    from application.errors.handlers import errors
     application.register_blueprint(users)
     application.register_blueprint(workouts)
     application.register_blueprint(main)
+    application.register_blueprint(errors)
     return application
