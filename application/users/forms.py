@@ -10,8 +10,6 @@ class RegistrationForm(FlaskForm):
                         validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email',
                         validators=[DataRequired(), Email()])
-    height = IntegerField('Height (Optional)')
-    weight = IntegerField('Weight (Optional)')
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',
                         validators=[DataRequired(), EqualTo('password')])
