@@ -16,7 +16,7 @@ login_manager.login_view = 'users.login'
 login_manager.login_message_category = 'info'
 
 application.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new_site.db'
 application.config['MAIL_SERVER'] = 'smtp.googlemail.com'
 application.config['MAIL_PORT'] = 587
 application.config['MAIL_USE_TLS'] = True

@@ -13,8 +13,8 @@ def landing_page():
 @login_required
 def home():
     page = request.args.get('page', 1, type=int)
-    posts = Workout.query.filter_by(user_id=current_user.id).order_by(Workout.workout_date.desc()).paginate(page=page, per_page=5)
-    return render_template('home.html', posts=posts)
+    workouts = Workout.query.filter_by(user_id=current_user.id).order_by(Workout.workout_date.desc()).paginate(page=page, per_page=5)
+    return render_template('home.html', workouts=workouts)
 
 @main.route("/about")
 def about():

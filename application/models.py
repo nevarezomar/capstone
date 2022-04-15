@@ -13,6 +13,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
+    height = db.Column(db.Integer, nullable=True)
+    weight = db.Column(db.Integer, nullable=True)
     workouts = db.relationship('Workout', backref='member', lazy=True)
 
     def get_reset_token(self, expires_sec=1800):
@@ -34,9 +36,15 @@ class User(db.Model, UserMixin):
 class Workout(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(60), nullable=False)
+    type_of = db.Column(db.String(60), nullable=False)
+    lifting_movement = db.Column(db.String(60), nullable=False)
+    weight = db.Column(db.Float, nullable=True)
+    num_reps = db.Column(db.Integer, nullable=True)
+    num_sets = db.Column(db.Integer, nullable=True)
+    rest_time = db.Column(db.Integer, nullable=True)
     workout_date = db.Column(db.DateTime, nullable=True, default=datetime.utcnow)
-    content = db.Column(db.Text, nullable=False)
+    content = db.Column(db.Text, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
-        return f"Workout('{self.title}, {self.workout_date}')"    
+        return f"Workout('{self.title}, {self.workout_date}')"
