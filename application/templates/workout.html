@@ -15,11 +15,31 @@
       </div>
       <h2 class="article-title">{{ workout.title }}</h2>
       <p class="article-content">{{ workout.type_of }}</p>
-      <p class="article-content">Lifting Movement: {{ workout.lifting_movement }}</p>
-      <p class="article-content">Number of Sets: {{ workout.num_sets }}</p>
-      <p class="article-content">Number of Rets: {{ workout.num_reps }}</p>
-      <p class="article-content"> Weight: {{ workout.weight }}</p>
-      <p class="article-content">Rest Time: {{ workout.rest_time }}</p>
+      {% if workout.type_of == 'Weight Lifting' %}
+        <p class="article-content">Lifting Movement: {{ workout.lifting_movement }}</p>
+        <p class="article-content">Number of Sets: {{ workout.num_sets }}</p>
+        <p class="article-content">Number of Rets: {{ workout.num_reps }}</p>
+        <p class="article-content">Weight: {{ workout.weight }}</p>
+        <p class="article-content">Rest Time: {{ workout.rest_time }}</p>
+      {% endif %}
+      {% if workout.type_of == 'Running' %}
+        <p class="article-content">Total Distance: {{ workout.total_distance }} miles</p>
+        <p class="article-content">Total Time: {{ workout.total_duration }} minutes</p>
+        <p class="article-content">Pace: {{ workout.pace }} minutes per mile</p>
+      {% endif %}
+      {% if workout.type_of == 'Biking' %}
+        <p class="article-content">Total Distance: {{ workout.total_distance }} miles</p>
+        <p class="article-content">Total Time: {{ workout.total_duration }} minutes</p>
+        <p class="article-content">Pace: {{ workout.pace }} minutes per mile</p>
+      {% endif %}
+      {% if workout.type_of == 'Rowing' %}
+        <p class="article-content">Total Distance: {{ workout.total_distance }} meters</p>
+        <p class="article-content">Total Time: {{ workout.total_duration }} minutes</p>
+        <p class="article-content">Pace: {{ workout.pace }} minute(s) per 500 meters</p>
+        <p class="article-content">Rate of Strokes: {{ workout.stroke_rate }} strokes per minute</p>
+        <p class="article-content">Total Strokes: {{ workout.total_strokes }} strokes</p>
+      {% endif %}
+      <p class="article-content">Notes: {{ workout.content }}</p>
     </div>
   </article>
   <!-- Modal -->
