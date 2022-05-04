@@ -137,8 +137,12 @@
       <div class="d-flex h-100 align-items-center hero__content-width">
         <div class="text-white">
           <h1 class="hero__heading fw-bold mb-4 text-white">Discover The Thrill Of Working Out.</h1>
-          <a href="{{ url_for('users.register') }}" class="mt-2 btn btn-lg btn-outline-light" role="button">Sign Up</a>
-          <a href="{{ url_for('users.login') }}" class="mt-2 btn btn-lg btn-light" role="button">Login</a>
+          {% if current_user.is_authenticated %}
+            <a href="{{ url_for('main.home') }}" class="mt-2 btn btn-lg btn-outline-light" role="button">Home</a>
+          {% else %}
+            <a href="{{ url_for('users.register') }}" class="mt-2 btn btn-lg btn-outline-light" role="button">Sign Up</a>
+            <a href="{{ url_for('users.login') }}" class="mt-2 btn btn-lg btn-light" role="button">Login</a>
+          {% endif %}
         </div>
       </div>
     </div>
