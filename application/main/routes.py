@@ -19,3 +19,7 @@ def home():
 @main.route("/about")
 def about():
     return render_template('about.html', title='About')
+
+@main.route("/leaderboard")
+def leaderboard():
+    return render_template('leaderboard.html', title='Leaderboard')
