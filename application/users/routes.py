@@ -96,3 +96,9 @@ def reset_token(token):
         flash(f'Password changed! Please login', 'success')
         return redirect(url_for('users.login'))
     return render_template('reset_token.html', title='Reset Password', form=form)
+
+@users.route("/dashboard", methods=['GET', 'POST'])
+@login_required
+def dashboard():
+    
+    return render_template('dashboard.html', title='Dashboard')
