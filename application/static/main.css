@@ -261,14 +261,9 @@ a.article-title:hover {
 
 
 .leaderboard {
-  position: relative;
-  left: 0;
-  top: 150px;
-  right: 0;
-  bottom: 0;
-  transform: translate(-50%, -50%);
-  width: 285px;
-  height: 308px;
+
+  width: auto;
+  height: auto;
   background: #4C566A;
   border-radius: 10px;
   box-shadow: 0 7px 30px rgba(62, 9, 11, 0.3);
