@@ -2,6 +2,7 @@ from flask import render_template, request, Blueprint
 from flask_login import current_user, login_required
 from application.models import Workout, User
 from application import db
+from sqlalchemy import select
 
 main = Blueprint('main', __name__)
 
@@ -22,4 +23,9 @@ def about():
 
 @main.route("/leaderboard")
 def leaderboard():
+    leaders = User.query.all()
+    
+    
+
+    #print(leaders)
     return render_template('leaderboard.html', title='Leaderboard')
